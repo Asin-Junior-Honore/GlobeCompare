@@ -7,6 +7,7 @@ import client from "@/lib/apollo-client";
 import CountryComparisonModal from "@/app/country/components/CountryComparisonModal";
 import NotFoundMessage from "./NotFoundMessage";
 import { Country } from "@/types/sharedTypes";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function CountriesTable() {
     const [countries, setCountries] = useState<Country[]>([]);
@@ -14,18 +15,24 @@ export default function CountriesTable() {
     const [visibleCount, setVisibleCount] = useState(10);
     const [selectedCountries, setSelectedCountries] = useState<Country[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchCountries() {
             try {
+                setLoading(true);
                 const { data } = await client.query({ query: GET_COUNTRIES });
                 setCountries(data.countries);
             } catch (error) {
                 console.error("Error fetching countries:", error);
+            } finally {
+                setLoading(false);
             }
         }
         fetchCountries();
     }, []);
+
+    if (loading) return <LoadingSpinner />;
 
     const filteredCountries = countries.filter((country) =>
         country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
