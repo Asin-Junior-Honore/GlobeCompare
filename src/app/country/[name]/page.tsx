@@ -18,9 +18,9 @@ export default function CountryPage() {
 
     if (loading) return <LoadingSpinner />;
     if (error || !data?.country) return <NotFoundMessage message="Oops! Country not found." showButton={true} />;
-    console.log(data)
 
-    const country = Array.isArray(data.country) ? data.country[0] : data.country;
+    const country = data.country[0]
+    // console.log(data)
 
     return (
         <div className="p-6 max-w-3xl mx-auto my-[3rem] bg-white border border-gray-300 dark:border-gray-700 lg:rounded-2xl shadow-xl">
