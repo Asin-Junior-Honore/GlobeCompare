@@ -1,4 +1,4 @@
-interface Country {
+export interface Country {
     name: { common: string };
     flags: { png: string };
     capital?: string[];
@@ -8,7 +8,7 @@ interface Country {
     gdp?: number;
 }
 
-interface Country {
+export interface Country {
     name: { common: string };
     flags: { png: string };
     population: number;
@@ -16,13 +16,13 @@ interface Country {
     gdp?: number;
 }
 
-interface CountryComparisonModalProps {
+ export interface CountryComparisonModalProps {
     open: boolean;
     onClose: () => void;
     countries: Country[];
 }
 
-interface NotFoundMessageProps {
+export interface NotFoundMessageProps {
     message: string;
     showButton?: boolean;
 }

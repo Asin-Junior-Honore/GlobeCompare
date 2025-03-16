@@ -6,6 +6,7 @@ import { GET_COUNTRIES } from "@/lib/queries";
 import client from "@/lib/apollo-client";
 import CountryComparisonModal from "@/app/country/components/CountryComparisonModal";
 import NotFoundMessage from "./NotFoundMessage";
+import { Country } from "@/types/sharedTypes";
 
 export default function CountriesTable() {
     const [countries, setCountries] = useState<Country[]>([]);

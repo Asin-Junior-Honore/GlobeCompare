@@ -1,10 +1,9 @@
 "use client"
 import React from "react";
 import { useRouter } from "next/navigation";
+import { NotFoundMessageProps } from "@/types/sharedTypes";
 
-
-
-const NotFoundMessage: React.FC<NotFoundMessageProps> = ({ message, showButton}) => {
+const NotFoundMessage: React.FC<NotFoundMessageProps> = ({ message, showButton }) => {
     const router = useRouter();
 
     return (

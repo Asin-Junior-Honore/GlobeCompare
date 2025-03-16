@@ -55,7 +55,7 @@ export default function CountryPage() {
                 <table className="w-full border border-gray-300 dark:border-gray-700 rounded-lg shadow-md">
                     <tbody className="divide-y divide-gray-300 dark:divide-gray-700">
                         {(() => {
-                            // Extract currencies properly
+
                             const currencyEntries = country?.currencies
                                 ? Object.entries(country.currencies).map(([code, details]) => ({
                                     code,
@@ -78,13 +78,13 @@ export default function CountryPage() {
                                 ["Calling Code", `${country?.idd?.root} ${country?.idd?.suffixes?.join(", ") || "N/A"}`],
                                 [
                                     "Google Maps",
-                                    <a href={country?.maps?.googleMaps} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                    <a key="googleMaps" href={country?.maps?.googleMaps} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                                         View on Google Maps
                                     </a>,
                                 ],
                                 [
                                     "OpenStreetMap",
-                                    <a href={country?.maps?.openStreetMaps} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                    <a key="openStreetMap" href={country?.maps?.openStreetMaps} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                                         View on OpenStreetMap
                                     </a>,
                                 ],

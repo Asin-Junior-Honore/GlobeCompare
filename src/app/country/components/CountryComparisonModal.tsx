@@ -1,10 +1,9 @@
+import { CountryComparisonModalProps } from "@/types/sharedTypes";
 
 export default function CountryComparisonModal({ open, onClose, countries }: CountryComparisonModalProps) {
     if (!open || countries.length !== 2) return null;
 
     return (
-
-
         <section className="fixed inset-0 flex items-center justify-center bg-black/50 z-10">
             <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-8 relative">
                 <button
