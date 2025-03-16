@@ -4,7 +4,7 @@ export default function CountryComparisonModal({ open, onClose, countries }: Cou
     if (!open || countries.length !== 2) return null;
 
     return (
-        <section className="fixed inset-0 flex items-center justify-center bg-black/50 z-10">
+        <section className="fixed inset-0 flex items-center justify-center bg-black/50 z-10 px-5 lg:px-0">
             <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-8 relative">
                 <button
                     onClick={onClose}
@@ -13,7 +13,7 @@ export default function CountryComparisonModal({ open, onClose, countries }: Cou
                     ✕
                 </button>
 
-                <h2 className="text-center text-2xl font-bold text-blue-500 mb-6">Country Comparison</h2>
+                <h2 className="lg:text-center text-2xl font-bold text-blue-500 mb-6">Country Comparison</h2>
 
                 <table className="w-full border-collapse border border-gray-300 shadow-sm">
                     <thead className="bg-gray-200 text-gray-700">

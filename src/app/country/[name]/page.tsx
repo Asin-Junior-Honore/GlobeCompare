@@ -23,14 +23,14 @@ export default function CountryPage() {
     const country = Array.isArray(data.country) ? data.country[0] : data.country;
 
     return (
-        <div className="p-6 max-w-3xl mx-auto my-[3rem] bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-xl">
-            <h1 className="text-3xl font-bold dark:text-gray-100 text-center text-blue-500 mb-[3rem]">
+        <div className="p-6 max-w-3xl mx-auto my-[3rem] bg-white border border-gray-300 dark:border-gray-700 lg:rounded-2xl shadow-xl">
+            <h1 className="text-3xl font-bold  text-center text-blue-500 mb-[3rem]">
                 {country?.name?.official}
             </h1>
 
-            <div className="flex justify-between items-center gap-4">
+            <div className="flex justify-between flex-col lg:flex-row items-center gap-4">
                 <div className="flex flex-col items-center">
-                    <p className="font-semibold text-lg text-gray-800 dark:text-gray-200">Country Flag</p>
+                    <p className="font-semibold text-lg text-gray-800">Country Flag</p>
                     <img
                         src={country?.flags?.png}
                         alt={country?.name?.common}
@@ -40,11 +40,11 @@ export default function CountryPage() {
 
                 {country?.coatOfArms?.png && (
                     <div className="flex flex-col items-center">
-                        <p className="font-semibold text-lg text-gray-800 dark:text-gray-200">Coat of Arms</p>
+                        <p className="font-semibold text-lg text-gray-800 lg:mb-0 mb-[2rem]">Coat of Arms</p>
                         <img
                             src={country.coatOfArms.png}
                             alt="Coat of Arms"
-                            className="h-48 w-48 object-contain rounded-lg"
+                            className="h-48 w-48 object-contain rounded-lg lg:mb-0 mb-[2rem]"
                         />
                     </div>
                 )}
@@ -55,7 +55,6 @@ export default function CountryPage() {
                 <table className="w-full border border-gray-300 dark:border-gray-700 rounded-lg shadow-md">
                     <tbody className="divide-y divide-gray-300 dark:divide-gray-700">
                         {(() => {
-
                             const currencyEntries = country?.currencies
                                 ? Object.entries(country.currencies).map(([code, details]) => ({
                                     code,
@@ -102,14 +101,13 @@ export default function CountryPage() {
                                 ],
                             ];
                             return rows.map(([label, value], index) => (
-                                <tr key={index} className="odd:bg-gray-100 dark:odd:bg-gray-800">
-                                    <td className="p-4 font-semibold text-gray-800 dark:text-gray-200">{label}</td>
-                                    <td className="p-4 text-gray-700 dark:text-gray-300">{value}</td>
+                                <tr key={index} className="odd:bg-gray-100">
+                                    <td className="p-4 font-semibold text-gray-800 dark:text-gray-700">{label}</td>
+                                    <td className="p-4 text-gray-700 dark:text-gray-600">{value}</td>
                                 </tr>
                             ));
                         })()}
                     </tbody>
-
                 </table>
             </div>
         </div>

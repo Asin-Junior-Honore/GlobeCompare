@@ -50,7 +50,7 @@ export default function CountriesTable() {
     };
 
     return (
-        <div className="flex flex-col items-center max-w-4xl mx-auto">
+        <div className="flex flex-col items-center lg:max-w-4xl mx-auto">
             <input
                 type="text"
                 placeholder="Search for a country..."
@@ -64,20 +64,20 @@ export default function CountriesTable() {
             ) : (
                 <>
                     {/* Countries Table */}
-                    <table className="min-w-full border border-gray-300">
+                    <table className="w-full border border-gray-300">
                         <thead>
                             <tr className="bg-gray-200">
-                                <th className="border px-4 py-2">Select</th>
-                                <th className="border px-4 py-2">Flag</th>
-                                <th className="border px-4 py-2">Country</th>
-                                <th className="border px-4 py-2">Capital</th>
-                                <th className="border px-4 py-2">Region</th>
+                                <th className="border px-2 lg:px-4 py-2">Select</th>
+                                <th className="border px-2 lg:px-4 py-2">Flag</th>
+                                <th className="border px-2 lg:px-4 py-2">Country</th>
+                                <th className="border px-2 lg:px-4 py-2">Capital</th>
+                                <th className="border px-2 lg:px-4 py-2">Region</th>
                             </tr>
                         </thead>
                         <tbody className="text-center">
                             {filteredCountries.slice(0, visibleCount).map((country, index) => (
                                 <tr key={index} className="border">
-                                    <td className="border px-4 py-2 text-center">
+                                    <td className="border px-2 lg:px-4 py-2 text-center">
                                         <input
                                             type="checkbox"
                                             checked={selectedCountries.some((c) => c.name.common === country.name.common)}
@@ -89,16 +89,16 @@ export default function CountriesTable() {
                                             }
                                         />
                                     </td>
-                                    <td className="border px-4 py-2">
+                                    <td className="border px-2 lg:px-4 py-2">
                                         <img src={country.flags.png} alt={country.name.common} className="mx-auto" width={30} />
                                     </td>
-                                    <td className="border px-4 py-2">
+                                    <td className="border px-2 lg:px-4 py-2">
                                         <Link href={`/country/${encodeURIComponent(country.name.common.replace(/\s+/g, "%20"))}`} className="text-blue-500 hover:underline">
                                             {country.name.common}
                                         </Link>
                                     </td>
-                                    <td className="border px-4 py-2">{country.capital?.[0] || "N/A"}</td>
-                                    <td className="border px-4 py-2">{country.region}</td>
+                                    <td className="border px-2 lg:px-4 py-2">{country.capital?.[0] || "N/A"}</td>
+                                    <td className="border px-2 lg:px-4 py-2">{country.region}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -107,7 +107,7 @@ export default function CountriesTable() {
                     {visibleCount < filteredCountries.length && (
                         <button
                             onClick={() => setVisibleCount((prev) => prev + 10)}
-                            className="mt-4 bg-blue-500 text-white px-4 py-2 cursor-pointer rounded hover:bg-blue-600"
+                            className="mt-4 bg-blue-500 text-white px-2 lg:px-4 py-2 cursor-pointer rounded hover:bg-blue-600"
                         >
                             Load More Countries
                         </button>
